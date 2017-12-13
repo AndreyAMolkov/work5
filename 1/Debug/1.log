@@ -1,0 +1,5 @@
+﻿  task1.c
+c:\git\work5\1\task1.c(4): warning C4028: формальный параметр 1 отличается от объявления
+c:\git\work5\1\task1.c(15): warning C4552: !=: оператор не имеет результата; требуется оператор с побочным действием
+  1.vcxproj -> C:\git\work5\Debug\1.exe
+  1.vcxproj -> C:\git\work5\Debug\1.pdb (Partial PDB)
