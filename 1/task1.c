@@ -1,7 +1,9 @@
 #include "task1.h"
 
-int findSymb(char *arr)
+int findSymb(int *arr)
 {
+	int count = 0;
+	int D = 10;// the discharge of the generated numbers
 	clock_t now;
 	now = clock();
 	srand(time(0));
@@ -10,11 +12,12 @@ int findSymb(char *arr)
 	{
 		switch (rand() % 1)
 		{case 0:
-			symbol = rand() % (0 - 9 + 1) + 1;
+			symbol = rand() % D;
+			count++;
 		}
-		if ((arr + symbol) > -1)
+		if (arr[symbol] > -1)
 		{
-			*(arr + symbol) = -1;
+			arr[symbol]= -1;
 			return symbol;
 			break;
 		}
@@ -25,14 +28,15 @@ int findSymb(char *arr)
 
 char * randomWords(char *in, char *out)
 {
-	int i = 0, j = 0,len=0,flagChar=0,countWord=0,from=0,to=0;
-	int checkArr[SIZE] = { -1 };
+	int i = 0, j = 0,len=0,flagChar=0,countWord=0,symbol=0;
+	int checkArr[SIZE] = { 0 };
+	char *result = in;
 	while (i<(SIZE-1))
 	{
 		checkArr[i++] = -1;
 	}
 	i = 0;
-	char *result[SIZE];
+	
 	
 	while (in[j]!='\n')
 	{
@@ -48,7 +52,7 @@ char * randomWords(char *in, char *out)
 		
 		if (flagChar == OUT && in[j] != '\0')
 		{
-			out[i] = in[j];
+			result[i] = in[j];
 			checkArr[i] = i;
 			i++;
 			flagChar++;
@@ -61,21 +65,23 @@ char * randomWords(char *in, char *out)
 		}
 
 	}
-	out[i] = '\0';
+	result[i] = '\0';
 	
 	countWord = i - 1;
 	
-	while(countWord!=0)
+	while(countWord >-1)
 	{	
-		result[findSymb(checkArr)] = out[findSymb(checkArr)];
+		symbol = findSymb(checkArr);
+		out[countWord] = result[symbol];
 		countWord--;
 	}
+	out[i] = '\0';
 	i = 0;
 	j = 0;
-	while (i < len) 
+	/*while (i < len) 
 	{
-		out[i++] = *(result[j]);
-	}
+		out[i++] = (result[j]);
+	}*/
 
 	return out;
 }
