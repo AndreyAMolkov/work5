@@ -1,24 +1,25 @@
 #include "task1.h"
 
-char * randomWords(char *in, char *out)
+char *randomWords(char *in, char *out[SIZE])
 {
 	int i = 0, j = 0,len=0,flagChar=0,countWord=0;
-	
+	int k = 0;
+	char buf = 0;
+	char *midl=in;
 	while (in[j]!='\n')
 	{
 		if (in[j] ==' ')
 			in[j] = '\0';
 		j++;
 	}
-	
 	len = j - 1;
-    in[len] != '\0';
+    in[j] = '\0';
 	for (j = 0;j <= len;j++)
 	{
 		
 		if (flagChar == OUT && in[j] != '\0')
 		{
-			out[i++] = in[j];
+			out[i++] = &in[j];
 			flagChar++;
 		}
 		else
@@ -30,8 +31,15 @@ char * randomWords(char *in, char *out)
 
 	}
 	out[i] = '\0';
+	
 	countWord = i - 1;
-
+	j = 0;
+	for(i=3;i>0;i--)
+	{
+		k = rand() % i;
+		buf = *out[k];
+		;
+	}
 	return out;
 }
 /*
