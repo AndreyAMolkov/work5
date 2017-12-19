@@ -1,6 +1,6 @@
 ﻿  task1.c
 c:\git\work5\1\task1.c(5): warning C4028: формальный параметр 2 отличается от объявления
-c:\git\work5\1\task1.c(38): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\git\work5\1\task1.c(54): warning C4047: return: "char *" отличается по уровням косвенного обращения от "char **"
+c:\git\work5\1\task1.c(36): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\git\work5\1\task1.c(46): warning C4047: return: "char *" отличается по уровням косвенного обращения от "char **"
   1.vcxproj -> C:\git\work5\Debug\1.exe
   1.vcxproj -> C:\git\work5\Debug\1.pdb (Partial PDB)

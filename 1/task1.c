@@ -1,7 +1,7 @@
 #include "task1.h"
+//#include "task4.h"
 
-
-char * randomWords(char *in, char *out[SIZE])
+char *randomWords(char *in, char *out[SIZE])
 {
 	int i = 0, j = 0,len=0,flagChar=0,countWord=0,symbol=0;
 	int checkArr[SIZE] = { 0 };
@@ -17,7 +17,6 @@ char * randomWords(char *in, char *out[SIZE])
     in[j] = '\0';
 	for (j = 0;j <= len;j++)
 	{
-		
 		if (flagChar == OUT && in[j] != '\0')
 		{
 			out[i] = &in[j];
@@ -31,26 +30,19 @@ char * randomWords(char *in, char *out[SIZE])
 				flagChar = OUT;
 			}
 		}
-
 	}
 	out[i] = '\0';
 	countWord = i ;
 	srand(time(0));
 	for (;countWord >2;countWord--)
 	{	
-		
 			j = countWord - 2;
 			symbol = rand() % j;
 			i = countWord - 1;
 			result = out[i]; 
-			
-			out[symbol] = out[i];
-out[i] = result;
-		
-		
+			out[i]=out[symbol];
+			out[symbol] = result;
 	}
-	
-
 	return out;
 }
 
