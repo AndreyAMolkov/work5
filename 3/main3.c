@@ -6,50 +6,35 @@ int main()
 {
 	int i = 0, len = 0, j = 0,k=0,z=0;
 	char buf[SIZE] = { 0 };
-	char *in[SIZE];
-	char *outstr[SIZE];
-	char *out[SIZE];
+	char outstr[SIZE];
 	char *p;
-	char *bufOut;
-	char collectString[SIZE];
-	char check[SIZE];
-	char ch = ' ';
 	FILE *fp = fopen("fp.txt", "r");
-	
-	FILE *fpFinal = fopen("fpFinal.txt", "a+");
-	if (fpFinal == NULL)
+	FILE *fpFinal = fopen("fpFinal.txt", "w");
+	if (fpFinal == NULL|| fp == NULL)
 	{
-		printf("%s -Error of open first file\n", fpFinal);
+		printf("Error of open file\n");
 		return -1;
 	}else printf("Open file fp.txt: \n");
 	
 	while (fgets(buf, SIZE, fp) != NULL)
 	{
 		p = mixLine(buf,outstr);
-		;
-		for (j = 0;p[j] != NULL;j++)
-		{
-			bufOut=mixChars(p[j],out);
-			for (k = 0,ch=' ';(ch = bufOut[k]) != NULL; k++)
-			{
-				fputc(ch, fpFinal);
-				printf("%c", ch);
-			}
-			printf("%c", " ");
-			//fclose(fpFinal); 
-		}
-		ch = '\n';
-		fputc(ch,fpFinal);
+		
+
+			
+		fputs(p,fpFinal);
 	}
 	;
-
-
+	fclose(fpFinal);
+	fclose(fp);
 	return 0;
 }
 /*
-   Написать программу, переставляющую случайным образом символы каждого слова каждой строки текстового файла, кроме первого и последнего, то есть начало и конец слова меняться не должны.
+   Написать программу, переставляющую случайным образом символы каждого слова каждой строки текстового файла, 
+   кроме первого и последнего, то есть начало и конец слова меняться не должны.
 
-Программа открывает существующий тектстовый файл и читает его построч- но. Для каждой строки выполняется разбивка на слова и независимая обра- ботка каждого слова
+Программа открывает существующий тектстовый файл и читает его построч- но. Для каждой строки выполняется разбивка
+на слова и независимая обра- ботка каждого слова
 Состав
 
 Программа должна состоять из функций:
