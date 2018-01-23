@@ -1,5 +1,10 @@
 ﻿  task1.c
 c:\git\work5\1\task1.c(33): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
 c:\git\work5\1\task1.c(52): warning C4047: !=: "int" отличается по уровням косвенного обращения от "void *"
+  main1.c
+c:\git\work5\1\main1.c(12): warning C4047: функция: "char *" отличается по уровням косвенного обращения от "char *[512]"
+c:\git\work5\1\main1.c(12): warning C4024: randomWords: различные типы для формального и фактического параметров 2
+c:\git\work5\1\main1.c(7): warning C4101: in: неиспользованная локальная переменная
+  Создание кода...
   1.vcxproj -> C:\git\work5\Debug\1.exe
   1.vcxproj -> C:\git\work5\Debug\1.pdb (Partial PDB)

@@ -1,5 +1,7 @@
-#include "task1.h"
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+#include "task1.h"
+
 
 /*
 #define OUT 0
@@ -13,29 +15,21 @@ int main()
 {
 	int i = 0, len = 0, j = 0;
 	char buf[SIZE] = { 0 };
-	char *in[SIZE];
-	char *out[SIZE];
-	char **p;
 	char bufOut[SIZE] = { 0 };
+	char *out = bufOut;
+	
 	FILE *fp = fopen("fp.txt", "r");
 	FILE *fpFinal = fopen("fpFinal.txt", "w");
-	printf("Open file fp.txt: \n");
+	if (fp==NULL||fpFinal==NULL)
+	printf("ERROR file fp.txt: \n");
 	
-	while (fgets(buf, SIZE, fp)!=EOF)
+	while (fgets(buf, SIZE, fp)!=0)
 	{
-		p = randomWords(buf, out);
-		for (j = 0;p[j] != '\0';j++)
-		{
-			fgets(bufOut[i++], SIZE, p[j]);
-			bufOut[i] = ' ';
-			
-		}
-		bufOut[++i] = '\n';
-		bufOut[++i] = '\0';
-		fprintf(fpFinal, bufOut);
+
+		fprintf(fpFinal, "%s\n", randomWords(buf, out));
 	}
-	;
-	
+	fclose(fp);
+	fclose(fpFinal);
 
 	return 0;
 }
